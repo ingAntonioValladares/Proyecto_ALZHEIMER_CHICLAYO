@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALZHEIMER</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVEGACION -->
+    <div class="contenido-navegacion">
+      <img src="img/logoAlzheimer3.png" alt="logo" />
+      <!-- logo pagina -->
+      <ul class="navegacion">
+        <!-- <li>Inicio</li> -->
+        <li><a href="#queEs">¿Qué es?</a></li>
+        <li><a href="#">Señales</a></li>
+        <li><a href="#">Etapas</a></li>
+        <li>
+          <a href="#factores">
+            Factores de Riego <br />
+            y Protectores
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            >Recursos y<br />
+            Apoyo</a
+          >
+        </li>
+      </ul>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#1f1f1f"
+      >
+        <path
+          d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+        />
+      </svg>
+      <!-- navegacion -->
+    </div>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenedor">
+      <div class="contenido-principal">
+        <!-- <img src="/img/img-principal.jpg" alt="imagen contenido principal" /> -->
+        <video controls autoplay muted loop playsinline>
+          <source src="video/video3.webm" type="video/webm" />
+          <source src="video/video_1.mp4" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video>
+        <div class="detalle">
+          <p>
+            🖤 “Recordar es fácil para quien tiene memoria. <br />Olvidar es
+            difícil para quien tiene corazón” 🌷
+            <span class="autorFrasePrincipal">- Gabriel García Márquez -</span>
+          </p>
+          <!-- frase -->
+          <div class="enlaces-clave">
+            <a href="#">Aprende Más</a>
+            <a href="#">Encuentra ayuda</a>
+          </div>
+          <!-- .enlaces-clave -->
+        </div>
+        <!-- .detalle -->
+      </div>
+      <!-- .contenido-principal -->
+    </main>
+    <!-- ¿ QUÉ ES ? -->
+    <section id="queEs" class="contenedor concepto-alzheimer">
+      <h2>¿Qué es el Alzheimer?</h2>
+      <p>
+        El Alzheimer es una
+        <span class="resaltar">enfermedad neurodegenerativa</span> causada por
+        la acumulación de <span class="resaltar">proteína beta-amiloide</span> y
+        <span class="resaltar">proteína tau</span>, así como por la
+        <span class="resaltar">atrofia del cerebro</span>
+        <span class="cita" id="uno">[ 1 ]</span>.
+      </p>
+      <p>Explora los conceptos moviendo las piezas del tablero:</p>
+
+      <div class="tablero">
+        <div class="pieza" id="pieza1" data-pareja="1">
+          <h3>Enfermedad neurodegenerativa</h3>
+        </div>
+        <div class="pieza" id="pieza1-def" data-pareja="1">
+          <p>Las neuronas mueren progresivamente.</p>
+        </div>
+
+        <div class="pieza" id="pieza2" data-pareja="2">
+          <h3>Proteína beta-amiloide</h3>
+        </div>
+        <div class="pieza" id="pieza2-def" data-pareja="2">
+          <p>
+            La acumulación tóxica genera una interferencia en la sinapsis
+            neuronal (transmisión de información entre neuronas).
+          </p>
+        </div>
+
+        <div class="pieza" id="pieza3" data-pareja="3">
+          <h3>Proteína tau</h3>
+        </div>
+        <div class="pieza" id="pieza3-def" data-pareja="3">
+          <p>
+            La acumulación tóxica bloquea el transporte de nutrientes para el
+            correcto desempeño y posterior supervivencia de la neurona.
+          </p>
+        </div>
+
+        <div class="pieza" id="pieza4" data-pareja="4">
+          <h3>Atrofia cerebral</h3>
+        </div>
+        <div class="pieza" id="pieza4-def" data-pareja="4">
+          <p>Disminución del volumen cerebral por daño neuronal acelerado.</p>
+        </div>
+      </div>
+
+      <!-- MICROGLÍA - NUBE INFORMATIVA -->
+      <section class="cloud-wrap" aria-labelledby="cloud-title" role="region">
+        <div class="cloud" role="note" aria-live="polite">
+          <div class="cloud-head">
+            <span class="cloud-emoji" aria-hidden="true">🧠</span>
+            <strong id="cloud-title" class="cloud-title">Importante</strong>
+          </div>
+          <p class="cloud-text">
+            <strong>La microglía</strong> — las células inmunitarias del cerebro
+            — intentan eliminar la acumulación tóxica de las proteínas
+            beta-amiloide y tau. Cuando no logra hacerlo completamente, se
+            desencadena una neuroinflamación que agrava el daño neuronal y
+            acelera el avance del Alzheimer.
+          </p>
+        </div>
+      </section>
+
+      <div class="sabiasQue">
+        <h2>
+          ¿Sabías que el Alzheimer rara vez es hereditario?
+          <span class="cita" id="dos">[ 2 ]</span>
+        </h2>
+        <div class="versus">
+          <div class="genetica">
+            <p>Herencia genética</p>
+            <span>5%</span>
+          </div>
+          <div class="esporadico">
+            <p>Casos esporádicos</p>
+            <span>95%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTORES DE RIEGOS -->
+    <section class="contenedor contenido-factores" id="factores">
+      <h2>Factores de riesgo</h2>
+      <div class="detalle-factores">
+        <div class="No-Modificables">
+          <h3>No modificables <span class="cita" id="tres">[ 3 ]</span></h3>
+          <ul class="items_No-Modificables">
+            <li>edad</li>
+            <li>genética</li>
+            <li class="NoModificable-centrar">antecedentes <br />familiares</li>
+          </ul>
+        </div>
+        <div class="Modificables">
+          <h3>Modificables <span class="cita" id="cuatro">[ 4 ]</span></h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Factores de riesgo modificables</th>
+                <th>Descripción</th>
+                <th>Fuerza de la evidencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 🧒 Primeros años -->
+              <tr class="separador">
+                <td colspan="4">🧒 Primeros años de vida (0 - 25 años)</td>
+              </tr>
+              <tr>
+                <td>
+                  Educación, actividad <br />
+                  cognitiva
+                </td>
+                <td>
+                  En general el nivel educativo y no los años de educación. Es
+                  importante que la persona mantenga una
+                  <strong>alta estimulación cognitiva</strong>
+                  que se genera gracias a la
+                  <strong>complejidad de su ocupación</strong>
+                  en cualquier etapa de su vida.
+                </td>
+                <td>5%</td>
+              </tr>
+
+              <!-- 🧍‍♂️ Mediana edad -->
+              <tr class="separador">
+                <td colspan="4">🧍‍♂️ Mediana edad (26 - 59 años)</td>
+              </tr>
+              <tr>
+                <td>Pérdida auditiva</td>
+                <td>
+                  El 62% de las personas mayores de 50 años en el mundo
+                  presentan
+                  <strong>pérdida auditiva</strong>. Se establece como factor de
+                  riesgo por los
+                  <strong>factores psicosociales</strong>
+                  que desencadena como la
+                  <strong>soledad, la depresión y el aislamiento social</strong
+                  >. Las personas que hacen uso de
+                  <strong>equipos asistenciales como los audífonos</strong>
+                  tienen un
+                  <strong>riesgo significativamente menor</strong>
+                  de deterioro cognitivo y demencia.
+                </td>
+                <td>7%</td>
+              </tr>
+              <tr>
+                <td>Colesterol LDL</td>
+                <td>
+                  Sobre todo, en la <strong>mediana edad</strong> y no en la
+                  vejez. Un alto nivel de
+                  <strong>lipoproteínas de baja densidad (LDL)</strong> conlleva
+                  a una
+                  <strong>alta acumulación de colesterol en las arterias</strong
+                  >. La <strong>OMS</strong> sugiere un
+                  <strong
+                    >tratamiento de la dislipidemia en la mediana edad</strong
+                  >
+                  para
+                  <strong
+                    >reducir el riesgo de deterioro cognitivo y demencia</strong
+                  >.
+                </td>
+                <td>7%</td>
+              </tr>
+              <tr>
+                <td>Depresión</td>
+                <td>
+                  La <strong>depresión</strong> aumenta el
+                  <strong>riesgo de demencia</strong> porque conduce a una
+                  <strong>reducción del autocuidado</strong> y del
+                  <strong>contacto social</strong>, sobre todo en adultos
+                  mayores. También se relaciona con la demencia por la
+                  <strong>hipersecreción de cortisol</strong> que conduce a la
+                  <strong>atrofia del hipocampo</strong> o a una
+                  <strong>respuesta inflamatoria</strong>.
+                </td>
+                <td>3%</td>
+              </tr>
+              <tr>
+                <td>Lesión cerebral</td>
+                <td>
+                  Sobre todo, una <strong>lesión cerebral</strong> ocasionada
+                  antes de los <strong>60 años</strong>. Estas personas
+                  posiblemente enfrenten una
+                  <strong>aparición de demencia más temprana</strong>, 2 o 3
+                  años antes en comparación con aquellas
+                  <strong>sin lesiones cerebrales</strong>.
+                </td>
+                <td>3%</td>
+              </tr>
+              <tr>
+                <td>Inactividad física, ejercicio</td>
+                <td>
+                  Independientemente de la edad inicial, la
+                  <strong>actividad física</strong> se asocia con un
+                  <strong>menor riesgo de demencia</strong>. La
+                  <strong>actividad física</strong> influye positivamente en una
+                  <strong>mayor plasticidad cerebral</strong> y una
+                  <strong>menor neuroinflamación</strong>.
+                </td>
+                <td>2%</td>
+              </tr>
+              <tr>
+                <td>Diabetes</td>
+                <td>
+                  La aparición de la <strong>diabetes en mediana edad</strong> y
+                  no en la vejez, aumenta el
+                  <strong>riesgo de demencia</strong>. La
+                  <strong>resistencia a la insulina</strong> es un mecanismo
+                  molecular que vincula la diabetes con el Alzheimer porque
+                  conduce a una <strong>alteración tóxica</strong> de la
+                  <strong>proteína betamiloide</strong> y <strong>tau</strong>,
+                  así como <strong>neuroinflamación</strong>. La
+                  <strong>medicación antidiabética</strong> podría influenciar
+                  en un <strong>menor riesgo de demencia</strong>.
+                </td>
+                <td>2%</td>
+              </tr>
+              <tr>
+                <td>Fumar</td>
+                <td>
+                  Investigaciones recientes sugieren que
+                  <strong>empezar a fumar desde la edad media</strong> se asocia
+                  con un <strong>mayor riesgo de demencia</strong>, esto gracias
+                  a los
+                  <strong>tratamientos de enfermedades cardiovasculares</strong>
+                  y los
+                  <strong>cánceres relacionados con el tabaquismo</strong> que
+                  conllevan a que los fumadores vivan lo suficiente para
+                  desarrollar demencia. El
+                  <strong>riesgo se reduce para los exfumadores</strong>. El
+                  <strong>riesgo es menor</strong> para los que empiezan a fumar
+                  <strong>después de los 60 años</strong>, en comparación con
+                  los que fuman desde la <strong>mediana edad</strong>.
+                </td>
+                <td>2%</td>
+              </tr>
+              <tr>
+                <td>Hipertensión</td>
+                <td>
+                  Se sabe que la
+                  <strong>hipertensión en mediana edad</strong> aumenta el
+                  <strong>riesgo de demencia</strong>. A medida que se acerca el
+                  momento de la demencia, <strong>5 años antes</strong> esta
+                  empieza a <strong>disminuir</strong> y el
+                  <strong>peso</strong> hace lo mismo
+                  <strong>10 años antes del diagnóstico</strong>. Se evidencia
+                  un <strong>menor riesgo de demencia</strong> en personas que
+                  toman <strong>medicación antihipertensiva</strong>.
+                </td>
+                <td>2%</td>
+              </tr>
+              <tr>
+                <td>Obesidad</td>
+                <td>
+                  La <strong>obesidad en la edad media</strong> se asocia con la
+                  <strong>demencia</strong> con un
+                  <strong>índice de confianza del 95%</strong>. Se reconoce que
+                  <strong>mantener un comportamiento saludable</strong>
+                  <strong>reduce el riesgo de demencia</strong>, aunque no sea
+                  suficiente para <strong>alterar el peso</strong> de la persona
+                  con obesidad.
+                </td>
+                <td>1%</td>
+              </tr>
+              <tr>
+                <td>Consumo excesivo del alcohol</td>
+                <td>
+                  En general,
+                  <strong
+                    >mantener un consumo de alcohol leve y sostenido</strong
+                  >
+                  en el tiempo
+                  <strong>no se asocia con mayor riesgo de demencia</strong>, a
+                  diferencia de un <strong>consumo excesivo</strong>.
+                </td>
+                <td>1%</td>
+              </tr>
+              <!-- 👴 Vida tardía -->
+              <tr class="separador">
+                <td colspan="4">👴 Vida tardía (≥ 60 años)</td>
+              </tr>
+              <tr>
+                <td>Aislamiento social</td>
+                <td>
+                  El <strong>contacto social</strong> en cualquier forma tiene
+                  un <strong>efecto potencialmente beneficioso</strong> sobre el
+                  riesgo de demencia al
+                  <strong>crear una reserva cognitiva</strong>,
+                  <strong>promover conductas saludables</strong>
+                  y <strong>reducir el estrés y la inflamación</strong>.
+                </td>
+                <td>5%</td>
+              </tr>
+
+              <tr>
+                <td>Contaminación del aire</td>
+                <td>
+                  Hay <strong>evidencia emergente</strong> sobre los
+                  <strong>efectos potenciales</strong> de la
+                  <strong>mejora de la calidad del aire</strong>
+                  en el <strong>deterioro cognitivo</strong> y la
+                  <strong>incidencia de la demencia</strong>.
+                </td>
+                <td>3%</td>
+              </tr>
+              <tr>
+                <td>Pérdida de visión no tratada</td>
+                <td>
+                  Al desglosar en diferentes
+                  <strong>afecciones oculares</strong>, se asoció un
+                  <strong>mayor riesgo de demencia</strong> en
+                  <strong>cataratas</strong> (95%) y
+                  <strong>retinopatía diabética</strong> (63,9%), pero no con
+                  <strong>glaucoma</strong> (51,5%) o
+                  <strong>degeneración macular</strong> (91,0%). El
+                  <strong>riesgo de demencia aumenta</strong> con la
+                  <strong>gravedad de la pérdida visual</strong>. En todo el
+                  mundo, especialmente en los
+                  <strong>países de ingresos bajos y medios</strong>, la
+                  <strong>pérdida de visión no tratada</strong> sigue siendo un
+                  problema frecuente.
+                </td>
+                <td>2%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- .concepto-alzheimer -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
