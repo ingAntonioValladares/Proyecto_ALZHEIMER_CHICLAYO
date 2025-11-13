@@ -2,6 +2,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // alert(
   //   "¡Hola! 🌸 Toda la información que verás está respaldada por fuentes confiables.\nHaz clic en las citas para descubrirlas.\nInformarnos y compartir es la mejor forma de ayudar, porque nadie está libre."
   // );
+  const casa = document.querySelector("#casa");
+  casa.addEventListener("click", () => {
+    // Verifica si ya existe el menú flotante
+    const menuExistente = document.querySelector(".menuFlotante");
+
+    if (menuExistente) {
+      // 🔹 Si ya existe, lo elimina (oculta el menú)
+      menuExistente.remove();
+    } else {
+      // 🔹 Si no existe, lo crea
+      const menuFlotante = document.createElement("div");
+      menuFlotante.classList.add("menuFlotante");
+
+      const enlace_Que_Es = document.createElement("a");
+      enlace_Que_Es.classList.add("flotante_queEs");
+      enlace_Que_Es.href = "#queEs";
+      enlace_Que_Es.textContent = "¿Qué es?";
+
+      const enlace_Factores_Riesgo = document.createElement("a");
+      enlace_Factores_Riesgo.classList.add("flotante_riesgo");
+      enlace_Factores_Riesgo.href = "#factores";
+      enlace_Factores_Riesgo.textContent = "Factores de Riesgo";
+
+      const enlace_Factores_Protectores = document.createElement("a");
+      enlace_Factores_Protectores.classList.add("flotante_protectores");
+      enlace_Factores_Protectores.href = "#factoresProtectores";
+      enlace_Factores_Protectores.textContent = "Factores Protectores";
+
+      menuFlotante.appendChild(enlace_Que_Es);
+      menuFlotante.appendChild(enlace_Factores_Riesgo);
+      menuFlotante.appendChild(enlace_Factores_Protectores);
+
+      document.body.appendChild(menuFlotante);
+    }
+  });
   /* TABLERO */
   const piezas = document.querySelectorAll(".pieza");
   const tablero = document.querySelector(".tablero");
