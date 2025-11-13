@@ -216,12 +216,13 @@ video::-webkit-media-controls {
   row-gap: 10px;
 }
 .detalle p {
-  font-size: 3rem;
-  color: rgb(110, 8, 110);
+  font-size: 2.5rem;
+  color: rgb(58, 1, 58);
+  font-weight: 900;
 }
 @media (max-width: 730px) {
   .detalle p {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 }
 @media (max-width: 380px) {
@@ -489,7 +490,7 @@ video::-webkit-media-controls {
 .esporadico span {
   font-weight: 900;
   font-size: 3rem;
-  color: rgb(94, 36, 94);
+  color: #e6e1ef;
 }
 
 /* FACTORES DE RIESGO Y PROTECTORES */
@@ -559,13 +560,17 @@ td {
 }
 
 /* Celdas alternas */
+/* filas pares */
 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-
+/* filas impares */
+tbody tr:nth-child(odd) {
+  background-color: #82ca9d;
+}
 /* Hover suave para filas */
 tbody tr:hover {
-  background-color: #e8f9ee;
+  background-color: #c6ecd4;
   transition: background 0.3s ease;
 }
 
@@ -590,50 +595,50 @@ tbody td:nth-child(4) {
 
 /* Bordes redondeados arriba */
 table thead tr:first-child th:first-child {
-  border-top-left-radius: 10px;
+  border-top-left-radius: 30px;
 }
 table thead tr:first-child th:last-child {
-  border-top-right-radius: 10px;
+  border-top-right-radius: 30px;
 }
 
 /* REMARCAR SEPARACION HORIZONTAL CICLO DE VIDA */
 /* Filas separadoras por ciclo de vida */
 tr.separador td {
-  background-color: #78cc9e; /* verde menta claro */
+  background-color: #32b66d; 
   color: #1b1b1b;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.8rem 1rem;
-  border-top: 3px solid #69c29f;
-  border-bottom: 3px solid #69c29f;
+  border-top: 3px solid #0d613f;
+  border-bottom: 3px solid #0d613f;
   text-align: left;
   font-size: 1rem;
 }
 
-/* Pequeña sombra visual opcional */
+/* Pequeña sombra visual */
 tr.separador td::before {
   content: "";
   display: block;
   height: 2px;
-  background: #69c29f;
+  background: #0e3b29;
   opacity: 0.6;
   margin-bottom: 0.2rem;
 }
 /* REMARCAR SEPARACION VERTICAL CICLO DE VIDA */
 /* Separar visualmente la columna "Ciclo de la vida" */
-tbody td:nth-child(1),
+/* tbody td:nth-child(1),
 thead th:nth-child(1) {
   border-left: 3px solid #7fd6a3;
   background-color: #f3fcf6;
   font-weight: 600;
-}
-tbody td:nth-child(2),
+} */
+/* tbody td:nth-child(2),
 thead th:nth-child(2) {
   border-left: 3px solid #7fd6a3;
   background-color: #f3fcf6;
   font-weight: 600;
-}
+} */
 tbody td:nth-child(3),
 thead th:nth-child(3) {
   border-left: 3px solid #7fd6a3;
@@ -674,7 +679,7 @@ tbody td:nth-child(3) {
 .UNO {
   position: absolute;
   max-width: 420px;
-  background-color: #4c814e;
+  background-color: silver;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   padding: 10px 12px;
@@ -684,7 +689,10 @@ tbody td:nth-child(3) {
 }
 .UNO p {
   font-size: 2rem;
+  color: black;
+  font-weight: 600;
 }
+
 /* Animación suave al aparecer */
 .UNO.mostrar {
   opacity: 1;
@@ -693,7 +701,7 @@ tbody td:nth-child(3) {
 .DOS {
   position: absolute;
   max-width: 420px;
-  background-color: #4c814e;
+  background-color: silver;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   padding: 10px 12px;
@@ -703,6 +711,8 @@ tbody td:nth-child(3) {
 }
 .DOS p {
   font-size: 2rem;
+  color: black;
+  font-weight: 600;
 }
 /* Animación suave al aparecer */
 .DOS.mostrar {
@@ -712,7 +722,7 @@ tbody td:nth-child(3) {
 .TRES {
   position: absolute;
   max-width: 420px;
-  background-color: #4c814e;
+  background-color: silver;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   padding: 10px 12px;
@@ -722,6 +732,8 @@ tbody td:nth-child(3) {
 }
 .TRES p {
   font-size: 2rem;
+  color: black;
+  font-weight: 600;
 }
 /* Animación suave al aparecer */
 .TRES.mostrar {
@@ -729,9 +741,10 @@ tbody td:nth-child(3) {
 }
 
 .CUATRO {
+  /*CUATRO*/
   position: absolute;
   max-width: 420px;
-  background-color: #4c814e;
+  background-color: silver;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   padding: 10px 12px;
@@ -741,8 +754,52 @@ tbody td:nth-child(3) {
 }
 .CUATRO p {
   font-size: 2rem;
+  color: black;
+  font-weight: 600;
 }
 /* Animación suave al aparecer */
 .CUATRO.mostrar {
+  opacity: 1;
+}
+
+.CINCO {
+  position: absolute;
+  max-width: 420px;
+  background-color: silver;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  padding: 10px 12px;
+  color: #fff;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+.CINCO p {
+  font-size: 2rem;
+  color: black;
+  font-weight: 600;
+}
+/* Animación suave al aparecer */
+.CINCO.mostrar {
+  opacity: 1;
+}
+
+.SEIS {
+  position: absolute;
+  max-width: 420px;
+  background-color: silver;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  padding: 10px 12px;
+  color: #fff;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+.SEIS p {
+  font-size: 2rem;
+  color: black;
+  font-weight: 600;
+}
+/* Animación suave al aparecer */
+.SEIS.mostrar {
   opacity: 1;
 }
