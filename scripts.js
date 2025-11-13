@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const citaCuatro = document.querySelector("#cuatro");
   const citaCinco = document.querySelector("#cinco");
   const citaSeis = document.querySelector("#seis");
+  const citaSiete = document.querySelector("#siete");
 
   let divUNO = null;
   let divDOS = null;
@@ -117,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let divCuatro = null;
   let divCinco = null;
   let divSeis = null;
+  let divSiete = null;
 
   citaUno.addEventListener("click", (event) => {
     // Evita crear más de una vez
@@ -291,6 +293,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // Evitar que desaparezca si haces click dentro del cuadro
     divSeis.addEventListener("click", (e) => e.stopPropagation());
   });
+  citaSiete.addEventListener("click", (event) => {
+    // Evita crear más de una vez
+    if (divSiete) return;
+
+    // Crear el contenedor
+    divSiete = document.createElement("div");
+    divSiete.classList.add("SIETE", "mostrar");
+    divSiete.innerHTML = `
+    <p>
+    Y. Liu, G. Lu, L. Liu, Y. He, y W. Gong, «Cognitive reserve over the life course and risk of dementia: a systematic review and meta-analysis», Front. Aging Neurosci., vol. 16, p. 1358992, abr. 2024, doi: 10.3389/fnagi.2024.1358992.
+    </p>
+  `;
+
+    body.appendChild(divSiete);
+
+    // Posicionar arriba del span de cita
+    const rect = citaSiete.getBoundingClientRect();
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    const left = rect.left + window.scrollX;
+    const top = rect.top + scrollY - divSiete.offsetHeight - 1; // arriba de la cita
+
+    divSiete.style.left = `${left}px`;
+    divSiete.style.top = `${top}px`;
+
+    // Evitar que desaparezca si haces click dentro del cuadro
+    divSiete.addEventListener("click", (e) => e.stopPropagation());
+  });
   // Cerrar al hacer click fuera
   document.addEventListener("click", (event) => {
     if (
@@ -340,6 +369,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       divSeis.remove();
       divSeis = null;
+    }
+    if (
+      divSiete &&
+      !event.target.closest(".cita") &&
+      !event.target.closest(".SIETE")
+    ) {
+      divSiete.remove();
+      divSiete = null;
     }
   });
 });

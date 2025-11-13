@@ -678,31 +678,22 @@ tbody td:nth-child(3) {
 }
 
 /* FACTORES PROTECTORES */
-.tabla_Protectores .blanco {
-background-color: white;
+#factoresProtectores{
+  scroll-margin-top: 16rem;
 }
-.verde{
-  /* background-color: #7fd6a3; */
+.tabla_Protectores thead th:nth-child(4){
+font-size: 3rem;
+text-align: center;
+vertical-align: middle;
 }
-/* Hacer más visible la relación entre celdas */
-.tabla_Protectores tr {
-  position: relative;
+.tabla_Protectores tbody td:nth-child(3){
+  font-size: 2.5rem;
+  vertical-align: middle;
 }
-.tabla_Protectores tr::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 5px;
-  background: #81c784;
-  opacity: 0;
-  transition: opacity 0.3s;
+.tabla_Protectores tbody td:nth-child(4){
+  font-size: 4rem;
+  vertical-align: middle;
 }
-.tabla_Protectores tr:hover::before {
-  opacity: 1;
-}
-
 /* TODAS MIS CITAS */
 .UNO {
   position: absolute;
@@ -829,5 +820,26 @@ background-color: white;
 }
 /* Animación suave al aparecer */
 .SEIS.mostrar {
+  opacity: 1;
+}
+
+.SIETE {
+  position: absolute;
+  max-width: 420px;
+  background-color: silver;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  padding: 10px 12px;
+  color: #fff;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+.SIETE p {
+  font-size: 2rem;
+  color: black;
+  font-weight: 600;
+}
+/* Animación suave al aparecer */
+.SIETE.mostrar {
   opacity: 1;
 }
