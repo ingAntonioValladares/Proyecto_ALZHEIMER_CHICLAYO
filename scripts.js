@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // alert(
-  //   "¡Hola! 🌸 Toda la información que verás está respaldada por fuentes confiables.\nHaz clic en las citas para descubrirlas.\nInformarnos y compartir es la mejor forma de ayudar, porque nadie está libre."
-  // );
+  alert(
+    "¡Hola! 🌸 Toda la información que verás está respaldada por fuentes confiables.\nHaz clic en las citas para descubrirlas.\nInformarnos y compartir es la mejor forma de ayudar, porque nadie está libre."
+  );
   const casa = document.querySelector("#casa");
   casa.addEventListener("click", () => {
     // Verifica si ya existe el menú flotante
