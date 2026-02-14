@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             });
           },
-          { once: true }
+          { once: true },
         );
       });
     });
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaUno.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 6;
     const top = rect.top + scrollY - divUNO.offsetHeight - 1; // arriba de la cita
 
     divUNO.style.left = `${left}px`;
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaDos.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 120;
     const top = rect.top + scrollY - divDOS.offsetHeight - 1; // arriba de la cita
 
     divDOS.style.left = `${left}px`;
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaTres.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 238;
     const top = rect.top + scrollY - divTres.offsetHeight - 1; // arriba de la cita
 
     divTres.style.left = `${left}px`;
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaCuatro.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 208;
     const top = rect.top + scrollY - divCuatro.offsetHeight - 1; // arriba de la cita
 
     divCuatro.style.left = `${left}px`;
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaCinco.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 120;
     const top = rect.top + scrollY - divCinco.offsetHeight - 1; // arriba de la cita
 
     divCinco.style.left = `${left}px`;
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaSeis.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 180;
     const top = rect.top + scrollY - divSeis.offsetHeight - 1; // arriba de la cita
 
     divSeis.style.left = `${left}px`;
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Posicionar arriba del span de cita
     const rect = citaSiete.getBoundingClientRect();
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const left = rect.left + window.scrollX;
+    const left = rect.left + window.scrollX - 50;
     const top = rect.top + scrollY - divSiete.offsetHeight - 1; // arriba de la cita
 
     divSiete.style.left = `${left}px`;
