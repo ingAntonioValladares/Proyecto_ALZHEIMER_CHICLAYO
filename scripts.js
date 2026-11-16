@@ -1,141 +1,145 @@
 document.addEventListener("DOMContentLoaded", () => {
-  alert(
-    "¡Hola! 🌷 Toda la información que verás está respaldada por fuentes confiables.\nHaz clic en las citas para descubrirlas.\nInformarnos y compartir es la mejor forma de ayudar, porque nadie está libre.",
-  );
   const casa = document.querySelector("#casa");
+  const navegacion = document.querySelector("#navegacion");
   casa.addEventListener("click", () => {
-    // Verifica si ya existe el menú flotante
-    const menuExistente = document.querySelector(".menuFlotante");
-
-    if (menuExistente) {
-      // 🔹 Si ya existe, lo elimina (oculta el menú)
-      menuExistente.remove();
-    } else {
-      // 🔹 Si no existe, lo crea
-      const menuFlotante = document.createElement("div");
-      menuFlotante.classList.add("menuFlotante");
-
-      const enlace_Que_Es = document.createElement("a");
-      enlace_Que_Es.classList.add("flotante_queEs");
-      enlace_Que_Es.href = "#queEs";
-      enlace_Que_Es.textContent = "¿Qué es?";
-
-      const enlace_Factores_Riesgo = document.createElement("a");
-      enlace_Factores_Riesgo.classList.add("flotante_riesgo");
-      enlace_Factores_Riesgo.href = "#factores";
-      enlace_Factores_Riesgo.textContent = "Factores de Riesgo";
-
-      const enlace_Factores_Protectores = document.createElement("a");
-      enlace_Factores_Protectores.classList.add("flotante_protectores");
-      enlace_Factores_Protectores.href = "#factoresProtectores";
-      enlace_Factores_Protectores.textContent = "Factores Protectores";
-
-      menuFlotante.appendChild(enlace_Que_Es);
-      menuFlotante.appendChild(enlace_Factores_Riesgo);
-      menuFlotante.appendChild(enlace_Factores_Protectores);
-
-      document.body.appendChild(menuFlotante);
+    const menuAbierto = casa.getAttribute("aria-expanded") === "true";
+    casa.setAttribute("aria-expanded", String(!menuAbierto));
+    casa.setAttribute(
+      "aria-label",
+      menuAbierto ? "Abrir navegación" : "Cerrar navegación",
+    );
+    document
+      .querySelector(".contenido-navegacion")
+      .classList.toggle("menu-abierto", !menuAbierto);
+  });
+  navegacion.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      casa.setAttribute("aria-expanded", "false");
+      casa.setAttribute("aria-label", "Abrir navegación");
+      document
+        .querySelector(".contenido-navegacion")
+        .classList.remove("menu-abierto");
     }
   });
-  /* TABLERO */
-  const piezas = document.querySelectorAll(".pieza");
-  const tablero = document.querySelector(".tablero");
 
-  // Función para verificar si dos divs se superponen
-  function estanSuperpuestos(div1, div2) {
-    const r1 = div1.getBoundingClientRect();
-    const r2 = div2.getBoundingClientRect();
-    return !(
-      r1.right < r2.left ||
-      r1.left > r2.right ||
-      r1.bottom < r2.top ||
-      r1.top > r2.bottom
+  const paginas = document.querySelectorAll(".pagina-vista");
+  const titulosPagina = {
+    inicio: "Alzheimer: comprender para acompañar",
+    riesgos: "Factores de riesgo | Alzheimer",
+    proteccion: "Factores protectores | Alzheimer",
+  };
+
+  function mostrarPagina() {
+    const paginaSolicitada = window.location.hash.slice(1);
+    const paginaActiva = Array.from(paginas).find(
+      (pagina) => pagina.id === paginaSolicitada,
     );
+    const idActivo = paginaActiva
+      ? paginaActiva.dataset.pagina
+      : "inicio";
+
+    paginas.forEach((pagina) => {
+      pagina.hidden = pagina.dataset.pagina !== idActivo;
+    });
+
+    navegacion.querySelectorAll("[data-pagina]").forEach((enlace) => {
+      if (enlace.dataset.pagina === idActivo) {
+        enlace.setAttribute("aria-current", "page");
+      } else {
+        enlace.removeAttribute("aria-current");
+      }
+    });
+
+    document.title = titulosPagina[idActivo];
+    if (paginaActiva) {
+      window.scrollTo(0, 0);
+    }
   }
 
+  window.addEventListener("hashchange", mostrarPagina);
+  mostrarPagina();
+
+  /* Juego de relacionar conceptos */
+  const piezas = document.querySelectorAll(".pieza[data-pareja]");
+  const tablero = document.querySelector(".tablero");
+  const estadoJuego = document.querySelector("#estado-juego");
+  let piezaSeleccionada = null;
+  let parejasEncontradas = 0;
+
   function fusionar(p1, p2) {
-    const h3 = p1.querySelector("h3") || p2.querySelector("h3");
-    const p = p1.querySelector("p") || p2.querySelector("p");
-
-    // Evita fallar si algo no se encontró
-    if (!h3 || !p) return;
-
     const fusion = document.createElement("div");
     fusion.classList.add("pieza", "fusionada");
-    fusion.innerHTML = `
-    <h3>${h3.textContent}</h3>
-    <p>${p.textContent}</p>
-    <button class="desglosar">🧩 Desglosar</button>
-  `;
+    const titulo = p1.querySelector("h3") || p2.querySelector("h3");
+    const definicion = p1.querySelector("p") || p2.querySelector("p");
+    const tituloFusion = document.createElement("h3");
+    const definicionFusion = document.createElement("p");
+    const botonDesglosar = document.createElement("button");
 
-    fusion.style.left = (p1.offsetLeft + p2.offsetLeft) / 2 + "px";
-    fusion.style.top = (p1.offsetTop + p2.offsetTop) / 2 + "px";
+    tituloFusion.textContent = titulo.textContent;
+    definicionFusion.textContent = definicion.textContent;
+    botonDesglosar.classList.add("desglosar");
+    botonDesglosar.type = "button";
+    botonDesglosar.textContent = "Separar pareja";
+    fusion.append(tituloFusion, definicionFusion, botonDesglosar);
     tablero.appendChild(fusion);
     p1.remove();
     p2.remove();
+    parejasEncontradas += 1;
+    estadoJuego.textContent =
+      parejasEncontradas === 4
+        ? "¡Excelente! Encontraste las cuatro parejas."
+        : `¡Muy bien! Parejas encontradas: ${parejasEncontradas} de 4.`;
 
-    fusion.querySelector(".desglosar").addEventListener("click", () => {
+    botonDesglosar.addEventListener("click", () => {
       desglosar(fusion, p1, p2);
     });
   }
 
-  // Desglosar: volver a separar las piezas
   function desglosar(fusion, p1, p2) {
-    tablero.removeChild(fusion);
-    tablero.appendChild(p1);
-    tablero.appendChild(p2);
-    p1.style.left = fusion.offsetLeft + "px";
-    p1.style.top = fusion.offsetTop + "px";
-    p2.style.left = fusion.offsetLeft + 40 + "px";
-    p2.style.top = fusion.offsetTop + 40 + "px";
+    tablero.insertBefore(p1, fusion);
+    tablero.insertBefore(p2, fusion);
+    fusion.remove();
+    parejasEncontradas -= 1;
+    estadoJuego.textContent = `Parejas encontradas: ${parejasEncontradas} de 4.`;
   }
 
-  // Movimiento solo en escritorio
-  if (!/Mobi|Android/i.test(navigator.userAgent)) {
-    piezas.forEach((pieza) => {
-      let offsetX, offsetY;
+  piezas.forEach((pieza) => {
+    pieza.setAttribute("aria-pressed", "false");
+    pieza.addEventListener("click", () => {
+      if (piezaSeleccionada === pieza) {
+        pieza.classList.remove("seleccionada");
+        pieza.setAttribute("aria-pressed", "false");
+        piezaSeleccionada = null;
+        estadoJuego.textContent = "Selecciona un concepto y su definición.";
+        return;
+      }
 
-      pieza.addEventListener("mousedown", (e) => {
-        offsetX = e.clientX - pieza.offsetLeft;
-        offsetY = e.clientY - pieza.offsetTop;
-        pieza.style.zIndex = "1000";
-        pieza.style.transition = "none";
+      if (!piezaSeleccionada) {
+        piezaSeleccionada = pieza;
+        pieza.classList.add("seleccionada");
+        pieza.setAttribute("aria-pressed", "true");
+        estadoJuego.textContent = "Ahora selecciona su definición.";
+        return;
+      }
 
-        function mover(e) {
-          const x = e.clientX - offsetX;
-          const y = e.clientY - offsetY;
-          const maxX = tablero.offsetWidth - pieza.offsetWidth;
-          const maxY = tablero.offsetHeight - pieza.offsetHeight;
-          pieza.style.left = Math.min(Math.max(0, x), maxX) + "px";
-          pieza.style.top = Math.min(Math.max(0, y), maxY) + "px";
-        }
+      if (pieza.dataset.pareja === piezaSeleccionada.dataset.pareja) {
+        piezaSeleccionada.classList.remove("seleccionada");
+        piezaSeleccionada.setAttribute("aria-pressed", "false");
+        pieza.classList.remove("seleccionada");
+        piezaSeleccionada.setAttribute("aria-pressed", "false");
+        const pareja = piezaSeleccionada;
+        piezaSeleccionada = null;
+        fusionar(pareja, pieza);
+        return;
+      }
 
-        document.addEventListener("mousemove", mover);
-
-        document.addEventListener(
-          "mouseup",
-          () => {
-            pieza.style.zIndex = "1";
-            pieza.style.transition = "transform 0.2s";
-            document.removeEventListener("mousemove", mover);
-
-            // Al soltar, verificamos si coincide con su pareja
-            const pareja = pieza.dataset.pareja;
-            piezas.forEach((otra) => {
-              if (
-                otra !== pieza &&
-                otra.dataset.pareja === pareja &&
-                estanSuperpuestos(pieza, otra)
-              ) {
-                fusionar(pieza, otra);
-              }
-            });
-          },
-          { once: true },
-        );
-      });
+      piezaSeleccionada.classList.remove("seleccionada");
+      piezaSeleccionada.setAttribute("aria-pressed", "false");
+      piezaSeleccionada = null;
+      estadoJuego.textContent =
+        "Esas piezas no forman una pareja. Selecciona de nuevo un concepto.";
     });
-  }
+  });
 
   /* CITAS BIBLIOGRAFICAS */
   const body = document.querySelector("body");

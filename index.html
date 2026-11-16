@@ -1,81 +1,82 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ALZHEIMER</title>
+    <meta
+      name="description"
+      content="Una guía cercana y clara para comprender el Alzheimer, sus factores de riesgo y cómo cuidar la salud cerebral."
+    />
+    <meta name="theme-color" content="#f8f6f1" />
+    <title>Alzheimer: comprender para acompañar</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- NAVEGACION -->
-    <div class="contenido-navegacion">
-      <img src="img/logoAlzheimer3.png" alt="logo" />
-      <!-- logo pagina -->
-      <ul class="navegacion">
-        <!-- <li>Inicio</li> -->
-        <li><a href="#queEs">¿Qué es?</a></li>
-        <!-- <li><a href="#">Señales</a></li>
-        <li><a href="#">Etapas</a></li> -->
-        <li>
-          <a href="#factores"> Factores de Riego </a>
-        </li>
-        <li><a href="#factoresProtectores">Factores Protectores</a></li>
-        <!-- <li>
-          <a href="#"
-            >Recursos y<br />
-            Apoyo</a
-          >
-        </li> -->
-      </ul>
-      <svg
+    <header class="contenido-navegacion">
+      <a class="marca" href="#pagina-inicio" aria-label="Alzheimer, volver al inicio">
+        <img src="img/logoAlzheimer3.png" alt="" />
+        <span>Memoria<br /><strong>con sentido</strong></span>
+      </a>
+      <nav id="navegacion" aria-label="Navegación principal">
+        <ul class="navegacion">
+          <li><a href="#pagina-inicio" data-pagina="inicio">Inicio</a></li>
+          <li>
+            <a href="#pagina-riesgos" data-pagina="riesgos">Factores de riesgo</a>
+          </li>
+          <li>
+            <a href="#pagina-proteccion" data-pagina="proteccion">Factores protectores</a>
+          </li>
+        </ul>
+      </nav>
+      <button
         id="casa"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#1f1f1f"
+        class="boton-menu"
+        type="button"
+        aria-label="Abrir navegación"
+        aria-expanded="false"
+        aria-controls="navegacion"
       >
-        <path
-          d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
-        />
-      </svg>
-      <!-- navegacion -->
-    </div>
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="contenedor">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+    </header>
+    <main id="pagina-inicio" class="pagina-vista" data-pagina="inicio">
+    <div id="inicio" class="contenedor">
       <div class="contenido-principal">
-        <!-- <img src="/img/img-principal.jpg" alt="imagen contenido principal" /> -->
-        <video controls autoplay muted loop playsinline>
-          <source src="video/video3.webm" type="video/webm" />
-          <source src="video/video_1.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
         <div class="detalle">
-          <p>
-            🕊️ “Recordar es fácil para quien tiene memoria. <br />Olvidar es
-            difícil para quien tiene corazón” 💜
+          <span class="hero-etiqueta">INFORMACIÓN PARA COMPRENDER Y ACOMPAÑAR</span>
+          <h1>La memoria nos conecta con lo que somos.</h1>
+          <p class="hero-descripcion">
+            Conocer el Alzheimer es un primer paso para cuidar, acompañar y
+            construir juntos una vida con más comprensión.
+          </p>
+          <p class="frase-principal">
+            “Recordar es fácil para quien tiene memoria. Olvidar es difícil para
+            quien tiene corazón.”
             <span class="autorFrasePrincipal">- Gabriel García Márquez -</span>
           </p>
-          <!-- frase -->
           <div class="enlaces-clave">
-            <!-- <a href="#">Aprende Más</a> -->
+            <a class="boton-principal" href="#queEs">Comenzar a explorar <span aria-hidden="true">↓</span></a>
             <a
               href="https://www.gob.pe/saludmentalparatodos?utm_source=chatgpt.com"
               target="_blank"
               rel="noopener noreferrer"
-              >Encuentra ayuda</a
+              class="enlace-ayuda">Encuentra ayuda</a
             >
           </div>
-          <!-- <div class="enlaces-clave">
-            <a href="#">Aprende Más</a>
-            <a href="#">Encuentra ayuda</a>
-          </div> -->
-          <!-- .enlaces-clave -->
         </div>
-        <!-- .detalle -->
+        <div class="hero-visual">
+          <div class="hero-visual-acento" aria-hidden="true"></div>
+          <video controls autoplay muted loop playsinline aria-label="Video sobre el Alzheimer">
+            <source src="video/video3.webm" type="video/webm" />
+            <source src="video/video_1.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+          <span class="hero-nota"><span aria-hidden="true">✦</span> Un espacio para aprender con empatía</span>
+        </div>
       </div>
-      <!-- .contenido-principal -->
-    </main>
+    </div>
     <!-- ¿ QUÉ ES ? -->
     <section id="queEs" class="contenedor concepto-alzheimer">
       <h2>¿Qué es el Alzheimer?</h2>
@@ -85,54 +86,58 @@
         la acumulación de <span class="resaltar">proteína beta-amiloide</span> y
         <span class="resaltar">proteína tau</span>, así como por la
         <span class="resaltar">atrofia del cerebro</span>
-        <span class="cita" id="uno">[ 1 ]</span>.
+        <button class="cita" id="uno" type="button" aria-label="Ver referencia 1">[ 1 ]</button>.
       </p>
       <p class="mensaje-tablero">
-        Explora los conceptos moviendo las piezas del tablero:
+        Selecciona un concepto y luego su definición para unir cada pareja.
       </p>
 
-      <div class="tablero">
-        <div class="pieza" id="pieza1" data-pareja="1">
-          <h3>Enfermedad neurodegenerativa</h3>
-        </div>
-        <div class="pieza" id="pieza1-def" data-pareja="1">
-          <p>Las neuronas mueren progresivamente.</p>
-        </div>
+      <p id="estado-juego" class="estado-juego" aria-live="polite">
+        Hay cuatro parejas por descubrir. ¡Tú puedes!
+      </p>
 
-        <div class="pieza" id="pieza2" data-pareja="2">
+      <div class="tablero" role="group" aria-label="Juego de relacionar conceptos">
+        <button class="pieza pieza-concepto" type="button" id="pieza1" data-pareja="1">
+          <h3>Enfermedad neurodegenerativa</h3>
+        </button>
+        <button class="pieza pieza-definicion" type="button" id="pieza1-def" data-pareja="1">
+          <p>Las neuronas mueren progresivamente.</p>
+        </button>
+
+        <button class="pieza pieza-concepto" type="button" id="pieza2" data-pareja="2">
           <h3>Proteína beta-amiloide</h3>
-        </div>
-        <div class="pieza" id="pieza2-def" data-pareja="2">
+        </button>
+        <button class="pieza pieza-definicion" type="button" id="pieza2-def" data-pareja="2">
           <p>
             La acumulación tóxica genera una interferencia en la sinapsis
             neuronal (transmisión de información entre neuronas).
           </p>
-        </div>
+        </button>
 
-        <div class="pieza" id="pieza3" data-pareja="3">
+        <button class="pieza pieza-concepto" type="button" id="pieza3" data-pareja="3">
           <h3>Proteína tau</h3>
-        </div>
-        <div class="pieza" id="pieza3-def" data-pareja="3">
+        </button>
+        <button class="pieza pieza-definicion" type="button" id="pieza3-def" data-pareja="3">
           <p>
             La acumulación tóxica bloquea el transporte de nutrientes para el
             correcto desempeño y posterior supervivencia de la neurona.
           </p>
-        </div>
+        </button>
 
-        <div class="pieza" id="pieza4" data-pareja="4">
+        <button class="pieza pieza-concepto" type="button" id="pieza4" data-pareja="4">
           <h3>Atrofia cerebral</h3>
-        </div>
-        <div class="pieza" id="pieza4-def" data-pareja="4">
+        </button>
+        <button class="pieza pieza-definicion" type="button" id="pieza4-def" data-pareja="4">
           <p>Disminución del volumen cerebral por daño neuronal acelerado.</p>
-        </div>
+        </button>
       </div>
 
       <!-- MICROGLÍA - NUBE INFORMATIVA -->
-      <section class="cloud-wrap" aria-labelledby="cloud-title" role="region">
+      <section class="cloud-wrap" aria-labelledby="cloud-title-neuro" role="region">
         <div class="cloud" role="note" aria-live="polite">
           <div class="cloud-head">
             <span class="cloud-emoji" aria-hidden="true">🧠</span>
-            <strong id="cloud-title" class="cloud-title">Importante</strong>
+            <strong id="cloud-title-neuro" class="cloud-title">Importante</strong>
           </div>
           <p class="cloud-text">
             <strong>La microglía</strong> — las células inmunitarias del cerebro
@@ -147,7 +152,7 @@
       <div class="sabiasQue">
         <h2>
           ¿Sabías que el Alzheimer rara vez es hereditario?
-          <span class="cita" id="dos">[ 2 ]</span>
+          <button class="cita" id="dos" type="button" aria-label="Ver referencia 2">[ 2 ]</button>
         </h2>
         <div class="versus">
           <div class="genetica">
@@ -161,13 +166,19 @@
         </div>
       </div>
     </section>
+    </main>
 
     <!-- FACTORES DE RIEGOS -->
+    <main id="pagina-riesgos" class="pagina-vista" data-pagina="riesgos" hidden>
+      <div class="page-intro">
+        <span>GUÍA · 02 / 03</span>
+        <p>Factores que pueden aumentar el riesgo a lo largo de la vida.</p>
+      </div>
     <section class="contenedor contenido-factores" id="factores">
-      <h2>Factores de riesgo</h2>
+        <h1 class="page-title">Factores de riesgo</h1>
       <div class="detalle-factores">
         <div class="No-Modificables">
-          <h3>No modificables <span class="cita" id="tres">[ 3 ]</span></h3>
+          <h3>No modificables <button class="cita" id="tres" type="button" aria-label="Ver referencia 3">[ 3 ]</button></h3>
           <ul class="items_No-Modificables">
             <li>edad</li>
             <li>genética</li>
@@ -176,7 +187,7 @@
         </div>
         <!-- NO MODIFICABLES -->
         <div class="Modificables">
-          <h3>Modificables <span class="cita" id="cuatro">[ 4 ]</span></h3>
+          <h3>Modificables <button class="cita" id="cuatro" type="button" aria-label="Ver referencia 4">[ 4 ]</button></h3>
           <p>Detallados a continuación:</p>
           <table class="tabla-modificables">
             <thead>
@@ -413,11 +424,13 @@
           </table>
           <!-- VERSION MOVIL MODIFICABLES -->
           <div class="Modificables-MOVIL">
-            <div class="primeros-años">
-              <h3>
+            <details class="primeros-años">
+              <summary>
+                <h3>
                 Primeros años de vida <br />
                 (0 - 25 años)
-              </h3>
+                </h3>
+              </summary>
               <ul class="factor-riesgo">
                 <li class="detalle-factor-riesgo">
                   <h4>Educación, actividad cognitiva</h4>
@@ -430,13 +443,15 @@
                   <span>Fuerza de la evidencia: 5%</span>
                 </li>
               </ul>
-            </div>
+            </details>
             <!-- primeros años -->
-            <div class="mediana-edad">
-              <h3>
+            <details class="mediana-edad">
+              <summary>
+                <h3>
                 Mediana edad <br />
                 (26 - 59 años)
-              </h3>
+                </h3>
+              </summary>
               <ul class="factor-riesgo">
                 <li class="detalle-factor-riesgo">
                   <h4>Pérdida auditiva</h4>
@@ -564,13 +579,15 @@
                 </li>
                 <!-- Consumo excesivo del alcohol -->
               </ul>
-            </div>
+            </details>
             <!-- mediana edad -->
-            <div class="vida-tardia">
-              <h3>
+            <details class="vida-tardia">
+              <summary>
+                <h3>
                 Vida tardía <br />
                 (>= 60 años)
-              </h3>
+                </h3>
+              </summary>
               <ul class="factor-riesgo">
                 <li class="detalle-factor-riesgo">
                   <h4>Aislamiento social</h4>
@@ -609,18 +626,18 @@
                 </li>
                 <!-- Pérdida de visión no tratada  -->
               </ul>
-            </div>
+            </details>
             <!-- vida tardia -->
           </div>
         </div>
         <!-- MODIFICABLES -->
       </div>
       <!-- Detalle de ambos factores-->
-      <section class="cloud-wrap" aria-labelledby="cloud-title" role="region">
+      <section class="cloud-wrap" aria-labelledby="cloud-title-riesgos" role="region">
         <div class="cloud" role="note" aria-live="polite">
           <div class="cloud-head">
             <span class="cloud-emoji" aria-hidden="true">🔍</span>
-            <strong id="cloud-title" class="cloud-title">Importante</strong>
+            <strong id="cloud-title-riesgos" class="cloud-title">Importante</strong>
           </div>
           <p class="cloud-text">
             A cada <strong>factor de riesgo</strong> se le asigna un porcentaje
@@ -635,21 +652,27 @@
             una mejor <strong>neuroprotección</strong>, independientemente del
             sexo o del dominio cognitivo, con miras a lograr un
             <strong>envejecimiento saludable</strong
-            ><span class="cita" id="cinco">[ 5 ]</span>
-            <span class="cita" id="seis">[ 6 ]</span>.
+            ><button class="cita" id="cinco" type="button" aria-label="Ver referencia 5">[ 5 ]</button>
+            <button class="cita" id="seis" type="button" aria-label="Ver referencia 6">[ 6 ]</button>.
           </p>
         </div>
       </section>
     </section>
+    </main>
     <!-- .concepto-alzheimer -->
 
     <!-- FACTORES PROTECTORES -->
+    <main id="pagina-proteccion" class="pagina-vista" data-pagina="proteccion" hidden>
+      <div class="page-intro">
+        <span>GUÍA · 03 / 03</span>
+        <p>Hábitos y conexiones que ayudan a cuidar la salud cerebral.</p>
+      </div>
     <section id="factoresProtectores" class="contenedor">
-      <h2>Factores Protectores</h2>
+        <h1 class="page-title">Factores protectores</h1>
       <p>
         A continuación, se describen los factores protectores que aminoran el
         riesgo de demencia en los diferentes ciclos de la vida.
-        <span class="cita" id="siete">[ 7 ]</span>
+        <button class="cita" id="siete" type="button" aria-label="Ver referencia 7">[ 7 ]</button>
       </p>
       <table
         class="tabla_Protectores"
@@ -794,15 +817,7 @@
                 social más frecuente se asocia con mejores trayectorias
                 cognitivas posteriores.
               </p>
-              <span
-                style="
-                  color: #3d0d70;
-                  font-size: 2rem;
-                  font-weight: 600;
-                  text-transform: uppercase;
-                "
-                >Fuerza de la evidencia: 9%</span
-              >
+              <span>Fuerza de la evidencia: 9%</span>
             </li>
             <li>
               <p>Vida tardía (≥ 60 años)</p>
@@ -813,15 +828,7 @@
                 adultos mayores, puede ser un enfoque eficaz para reducir el
                 riesgo de Alzheimer.
               </p>
-              <span
-                style="
-                  color: #3d0d70;
-                  font-size: 2rem;
-                  font-weight: 600;
-                  text-transform: uppercase;
-                "
-                >Fuerza de la evidencia: 19%</span
-              >
+              <span>Fuerza de la evidencia: 19%</span>
             </li>
           </ul>
         </article>
@@ -849,11 +856,11 @@
         <!-- ACTIVIDADES COGNITIVAS -->
       </section>
       <!-- FIN -->
-      <section class="cloud-wrap" aria-labelledby="cloud-title" role="region">
+      <section class="cloud-wrap" aria-labelledby="cloud-title-protectores" role="region">
         <div class="cloud" role="note" aria-live="polite">
           <div class="cloud-head">
             <span class="cloud-emoji" aria-hidden="true">🔍</span>
-            <strong id="cloud-title" class="cloud-title">Importante</strong>
+            <strong id="cloud-title-protectores" class="cloud-title">Importante</strong>
           </div>
           <p class="cloud-text">
             A cada <strong>factor protector</strong> se le asigna un porcentaje
@@ -873,6 +880,7 @@
         </div>
       </section>
     </section>
+    </main>
 
     <footer class="footer">
       <p class="footer-message">
